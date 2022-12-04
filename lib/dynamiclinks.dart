@@ -1,8 +1,10 @@
+import 'package:curescience/signUp.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'AppRoutes.dart';
 import 'company.dart';
+import 'company2.dart';
 
 class RouteManager {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -15,6 +17,18 @@ class RouteManager {
         return MaterialPageRoute(
           settings: RouteSettings(name: AppRoutes.companyScreen),
           builder: (context) => companyScreen()
+        );
+        break;
+      case AppRoutes.companyScreen2:
+        return MaterialPageRoute(
+            settings: RouteSettings(name: AppRoutes.companyScreen2),
+            builder: (context) => companyScreen2()
+        );
+        break;
+      case AppRoutes.signUp:
+        return MaterialPageRoute(
+            settings: RouteSettings(name: AppRoutes.signUp),
+            builder: (context) => signUp()
         );
         break;
       default:
@@ -35,4 +49,6 @@ class RouteManager {
       );
     });
   }
+
+
 }

@@ -1,8 +1,9 @@
+import 'package:curescience/AppRoutes.dart';
 import 'package:curescience/company.dart';
 import 'package:flutter/material.dart';
 
 import 'dynamiclinks.dart';
-const companyScreen= "/companyScreen";
+
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
@@ -45,9 +46,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(10),
                 child: const Text(
-                  'Welcome to Cure Science',
+                  'Welcome to SmartHub',
                   style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.green,
                       fontWeight: FontWeight.w700,
                       fontSize: 24),
                 )),
@@ -55,7 +56,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(20),
                 child: const Text(
-                  'Sign In',
+                  'Have Code',
                   style: TextStyle(fontSize: 25,
                   fontWeight: FontWeight.w500 ,
                   color: Colors.black54),
@@ -71,35 +72,51 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               ),
             ),
             Container(
+                alignment: Alignment.center,
+                padding: const EdgeInsets.all(10),
+                child: const Text(
+                  'OR',
+                  style: TextStyle(fontSize: 20,
+                      fontWeight: FontWeight.w500 ,
+                      color: Colors.black54),
+                )),
+            Container(
               padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
               child: TextField(
                 obscureText: true,
                 controller: passwordController,
+                keyboardType: TextInputType.number,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'Password',
+
+                  labelText: 'Enter PhoneNumber',
                 ),
               ),
             ),
-            TextButton(
-              onPressed: () {
-                //forgot password screen
-              },
-              child: const Text('Forgot Password or Code',
-                style: TextStyle(color: Colors.blueGrey),
-              ) ),
+            // TextButton(
+            //   onPressed: () {
+            //     //forgot password screen
+            //   },
+            //   child: const Text('Forgot Password or Code',
+            //     style: TextStyle(color: Colors.blueGrey),
+            //   ) ),
             Container(
                 height: 50,
-                padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                      primary: Colors.black87,
+                      primary: Colors.grey,
                       ),
-                  child: const Text('Login',
+                  child: const Text('Submit',
                         style: TextStyle(color: Colors.white),
                   ),
                   onPressed: () {
-                    Navigator.pushNamed(context,companyScreen);
+                    print(nameController.text);
+                    if(nameController.text == "C1"){
+                    Navigator.pushNamed(context,AppRoutes.companyScreen);}
+                    else if(nameController.text == "C2"){
+                    Navigator.pushNamed(context,AppRoutes.companyScreen2);
+                    }
                   },
                 )
             ),
@@ -111,10 +128,10 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   child: const Text(
                     'Create one',
                     style: TextStyle(fontSize: 20,
-                    color: Colors.black54),
+                    color: Colors.grey),
                   ),
                   onPressed: () {
-                    // Navigator.pushNamed(context,companyScreen);
+                    Navigator.pushNamed(context,AppRoutes.signUp);
                     //signup screen
                   },
                 )
